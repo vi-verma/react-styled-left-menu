@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
-import styled, { keyframes } from "styled-components";
+import styled, {css, keyframes } from "styled-components";
 
 const dropdownOptions = [
   {
     value: "Demo med",
     label: "Demo med",
+  },
+  {
+    value: "Demo 1",
+    label: "Demo 1",
   },
 ];
 
@@ -66,19 +70,31 @@ const Icon = styled.img`
   height: 16px;
   margin-right: 10px;
 `;
+const rotateAnimation = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
+  }
+`;
+
 const CarretIcon = styled.img`
   width: 6px;
   height: 10px;
   position: absolute;
   right: 12px;
   margin-top: 4px;
+  transform: rotate(90deg)
+  transition: transform 0.3s ease-in-out;
+  ${({ isSelected, isRootMenuList }) => isSelected ? css`transform: rotate(270deg);` : !isRootMenuList && css`transform: rotate(90deg);`};
 `;
 const MenuItem = styled.div`
   padding: 10px;
   cursor: pointer;
   display: flex;
   align-item: center;
-  text-transform: ${({ isRootMenuList }) => isRootMenuList && "uppercase"};
+  text-transform: ${({ isRootMenuList }) => isRootMenuList ? "uppercase" : "capitalize"};
   animation: ${slideInAnimation} 0.3s ease-in-out forwards;
   &:hover {
     // background-color: #337dff;
@@ -125,8 +141,9 @@ const DropdownSelect = styled.select`
 
 const TestMenu = (props) => {
   const [isOpen, setIsOpen] = useState(true);
-  console.log("🚀 ~ TestMenu ~ isOpen:", isOpen);
+  // console.log("🚀 ~ TestMenu ~ isOpen:", isOpen);
   const [openMenus, setOpenMenus] = useState({});
+  console.log("🚀 ~ TestMenu ~ openMenus:", openMenus)
   const [isRootMenuList, setIsRootMenuList] = useState(true);
   const [currentMenuList, setcurrentMenuList] = useState([...props.items]);
   console.log("🚀 ~ TestMenu ~ currentMenuList:", currentMenuList);
@@ -149,7 +166,7 @@ const TestMenu = (props) => {
     isRootMenuList && setcurrentMenuList({ ...children });
     // isRootMenuList && setIsOpen(false);
     setIsRootMenuList(false);
-    setOpenMenus({
+    !isRootMenuList && setOpenMenus({
       ...openMenus,
       [index]: !openMenus[index],
     });
@@ -165,7 +182,8 @@ const TestMenu = (props) => {
     console.log("🚀 ~ renderMenuItems ~ data:", data);
     const items = Array.isArray(data) ? data : data?.children;
     return items?.map((item, index) => {
-      const itemIndex = parentIndex + index;
+      // const itemIndex = parentIndex + index;
+      const itemIndex = item.id;
       const hasSubMenu =
         Array.isArray(item?.children) && item.children.length > 0;
 
@@ -179,6 +197,8 @@ const TestMenu = (props) => {
             <span>{item.label}</span>
             {item.children && (
               <CarretIcon
+                isRootMenuList={isRootMenuList}
+                isSelected={openMenus[itemIndex]}
                 src={"/src/assets/icons/drop down-01.png"}
                 alt="Suffix Icon"
               />
