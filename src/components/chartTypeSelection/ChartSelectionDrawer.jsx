@@ -23,15 +23,16 @@ const DrawerHeader = styled.div`
   display: flex;
   color: grey;
   justify-content: space-between;
+  align-items:center;
   padding: 0.8rem 0.7rem 0.4rem 1rem;
 `;
 const HeaderText = styled.div`
   font-size: 1rem;
   padding: 0 0.6rem;
 `;
-const CloseIcon = styled.div`
-  font-size: 1rem;
+const CloseIcon = styled.img`
   padding: 0 0.4rem;
+  height: .8rem;
 `;
 const Divider = styled.hr`
   border: none;
@@ -79,7 +80,7 @@ const ChartPickerDrawer = ({ isopen, data, itemPerRow = 2 }) => {
     <DrawerContainer isopen={isopen}>
       <DrawerHeader>
         <HeaderText>Choose your Chart Type</HeaderText>
-        <CloseIcon>X</CloseIcon>
+        <CloseIcon src={ICON_PATH + 'cross_icon.png'} alt="Icon" />
       </DrawerHeader>
       <Divider />
       <List>
