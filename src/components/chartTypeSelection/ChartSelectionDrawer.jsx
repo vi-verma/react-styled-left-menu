@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 
 
 const ICON_PATH = "/src/assets/chartIcons/";
 
 const DrawerContainer = styled.div`
-  width: 30vw;
+  width: 34vw;
   height: 96vh;
   padding:8px;
   border-radius: 6px;
@@ -50,10 +50,12 @@ const List = styled.ul`
 `;
 
 const ListItem = styled.li`
-  width: ${({ itemPerRow }) => `calc(${100 / itemPerRow}% - 12% - 20px)`};
+  width: ${({ itemPerRow }) => `calc(${100 / itemPerRow}% - 8% )`};
+  /* height: ${({ cHeight }) => cHeight+'px'}; */
   height: auto;
-  padding: 2% 4%;
-  margin: 10px;
+  /* height: calc((34/3)vw - 6vw ); */
+  padding: 2% ;
+  margin: 2%;
   font-size: .7rem;
   display: flex;
   flex-direction: column;
@@ -68,16 +70,22 @@ const ListItem = styled.li`
 `;
 
 const Icon = styled.img`
-  width: 100%;
-  height: auto;
-  padding: 8px 2px;
-`;
-
-const Label = styled.span`
+  width: 50%;
+  height: 50%;
   padding: 2%;
 `;
 
-const ChartPickerDrawer = ({ isopen, data, itemPerRow = 3 }) => {
+const Label = styled.span`
+  padding: 1%;
+`;
+
+const ChartPickerDrawer = ({ isopen, data, itemPerRow = 4 }) => {
+  const dynamicDivRef = useRef(null);
+  useEffect(() => {
+    const dynamicDiv = dynamicDivRef.current;
+    const width = dynamicDiv.offsetWidth;
+    dynamicDiv.style.height = `${width}px`;
+  }, []);
   return (
     <DrawerContainer isopen={isopen}>
       <DrawerHeader>
@@ -87,8 +95,8 @@ const ChartPickerDrawer = ({ isopen, data, itemPerRow = 3 }) => {
       <Divider />
       <List>
         {data.map((item, index) => (
-          <ListItem key={index} itemPerRow={itemPerRow}>
-            {item.icon && <Icon src={ICON_PATH + item.icon} alt="Icon" />}
+          <ListItem key={index} itemPerRow={itemPerRow} cHeight={dynamicDivRef?.current?.offsetWidth} ref={dynamicDivRef}>
+            {item?.icon && <Icon src={ICON_PATH + item?.icon} alt={'Icon'} />}
             {item?.label && <Label>{item?.label}</Label>}
           </ListItem>
         ))}
