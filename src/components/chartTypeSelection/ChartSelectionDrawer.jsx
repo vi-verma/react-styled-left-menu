@@ -39,24 +39,24 @@ const Divider = styled.hr`
   margin: 4px 0;
 `;
 const ListContainer = styled.div`
-  height: 82vh;
+  height: 80vh;
   padding: 0;
-  margin: 1rem;
+  margin: 0;
   overflow: auto;
 `;
 const List = styled.ul`
   padding: 0;
-  margin:0;
+  margin: 0 1rem;
   list-style: none;
   display: flex;
   flex-wrap: wrap;
 `;
 
 const ListItem = styled.li`
-  width: ${({ itemPerRow }) => `calc(${100 / itemPerRow}%)`};
-  height: ${({ itemPerRow }) => `calc(${29 / itemPerRow}vw)`};
+  width: ${({ itemPerRow }) => `calc(${100 / itemPerRow}% - .5rem)`};
+  min-height: ${({ itemPerRow }) => `calc(${29 / itemPerRow}vw - .5rem)`};
   padding: 0;
-  margin: 0;
+  margin: 4px 4px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -76,11 +76,11 @@ const Icon = styled.img`
 `;
 
 const Label = styled.div`
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   padding: 4px;
 `;
 
-const ChartPickerDrawer = ({ isopen, data, itemPerRow = 4 }) => {
+const ChartPickerDrawer = ({ isopen, data, itemPerRow = 6 }) => {
   return (
     <DrawerContainer isopen={isopen}>
       <DrawerHeader>
