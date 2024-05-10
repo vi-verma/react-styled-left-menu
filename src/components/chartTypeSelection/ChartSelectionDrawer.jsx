@@ -23,7 +23,7 @@ const DrawerHeader = styled.div`
   color: grey;
   justify-content: space-between;
   align-items: center;
-  padding: 0.6rem;
+  padding: 1.2rem 0.6rem 0.4rem 0.8rem;
 `;
 const HeaderText = styled.div`
   font-size: 0.9rem;
