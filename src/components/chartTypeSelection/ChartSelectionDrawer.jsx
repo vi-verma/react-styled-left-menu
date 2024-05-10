@@ -51,6 +51,7 @@ const ListItem = styled.li`
   height: auto;
   padding: 4% 6%;
   margin: 10px;
+  font-size: .7rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -70,10 +71,10 @@ const Icon = styled.img`
 `;
 
 const Label = styled.span`
-  padding: 0 4%;
+  padding: 2% 4%;
 `;
 
-const ChartPickerDrawer = ({ isopen, data, itemPerRow = 3 }) => {
+const ChartPickerDrawer = ({ isopen, data, itemPerRow = 2 }) => {
   return (
     <DrawerContainer isopen={isopen}>
       <DrawerHeader>
