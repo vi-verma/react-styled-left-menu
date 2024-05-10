@@ -165,7 +165,7 @@ const CHART_TYPES = [
   },
   {
       id:2,
-      // label:'Horizontal Bar Chart',
+      label:'Horizontal Bar Chart',
       icon: 'horizontal_bar_chart.png',
   },
   {

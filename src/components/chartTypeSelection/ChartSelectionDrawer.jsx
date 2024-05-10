@@ -50,7 +50,7 @@ const List = styled.ul`
 const ListItem = styled.li`
   width: ${({ itemPerRow }) => `calc(${100 / itemPerRow}% - 12% - 20px)`};
   height: auto;
-  padding: 4% 6%;
+  padding: 6%;
   margin: 10px;
   font-size: .7rem;
   display: flex;
@@ -72,7 +72,7 @@ const Icon = styled.img`
 `;
 
 const Label = styled.span`
-  padding: 2% 4%;
+  padding: 2%;
 `;
 
 const ChartPickerDrawer = ({ isopen, data, itemPerRow = 2 }) => {
@@ -87,7 +87,7 @@ const ChartPickerDrawer = ({ isopen, data, itemPerRow = 2 }) => {
         {data.map((item, index) => (
           <ListItem key={index} itemPerRow={itemPerRow}>
             {item.icon && <Icon src={ICON_PATH + item.icon} alt="Icon" />}
-            <Label>{item?.label}</Label>
+            {item?.label && <Label>{item?.label}</Label>}
           </ListItem>
         ))}
       </List>
