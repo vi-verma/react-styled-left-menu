@@ -6,11 +6,13 @@ const ICON_PATH = "/src/assets/chartIcons/";
 
 const DrawerContainer = styled.div`
   width: 30vw;
-  height: 100vh;
+  height: 96vh;
+  padding:8px;
   border-radius: 6px;
   font-family: "Lato", sans-serif;
   position: fixed;
   top: 0;
+  right:10px;
   overflow: auto;
   /* left: ${({ isopen }) => (isopen ? "0" : "-300px")}; */
   background-color: white;
@@ -24,10 +26,10 @@ const DrawerHeader = styled.div`
   color: grey;
   justify-content: space-between;
   align-items:center;
-  padding: 0.8rem 0.7rem 0.4rem 1rem;
+  padding: 1rem 0.7rem 0.4rem 1rem;
 `;
 const HeaderText = styled.div`
-  font-size: 1rem;
+  font-size: .9rem;
   padding: 0 0.6rem;
 `;
 const CloseIcon = styled.img`
