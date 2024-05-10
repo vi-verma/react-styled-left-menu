@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styled, {css, keyframes } from "styled-components";
 
 const dropdownOptions = [
@@ -36,15 +36,11 @@ const MenuContainer = styled.div`
   color: 4d4d4d;
   position: fixed;
   top: 0;
-  // left: ${({ isOpen }) => (isOpen ? "0" : "-200px")};
-  // transition: left 0.3s ease-in;
 `;
 
 const MenuHeader = styled.div`
-  // border-radius: ${({ isRootMenuList }) =>
-    isRootMenuList ? "0 8px 16px 0" : "0"}
-  border-top-right-radius: ${({ isRootMenuList }) =>
-    isRootMenuList ? "8px 8px" : ""};
+  // border-radius: ${({ isRootMenuList }) => isRootMenuList ? "0 8px 16px 0" : "0"};
+  border-top-right-radius: ${({ isRootMenuList }) => isRootMenuList ? "8px 8px" : ""};
   padding: 14px;
   cursor: pointer;
   background: #337dff;
@@ -58,7 +54,7 @@ const SubMenuHeader = styled.div`
   padding: 10px;
   cursor: pointer;
   display: flex;
-  align-item: center;
+  align-items: center;
   // &:hover {
   //   // background-color: #337dff;
   //   background-color: white;
@@ -85,7 +81,7 @@ const CarretIcon = styled.img`
   position: absolute;
   right: 12px;
   margin-top: 4px;
-  transform: rotate(90deg)
+  transform: rotate(90deg);
   transition: transform 0.3s ease-in-out;
   ${({ isSelected, isRootMenuList }) => isSelected ? css`transform: rotate(270deg);` : !isRootMenuList && css`transform: rotate(90deg);`};
 `;
@@ -93,7 +89,7 @@ const MenuItem = styled.div`
   padding: 10px;
   cursor: pointer;
   display: flex;
-  align-item: center;
+  align-items: center;
   text-transform: ${({ isRootMenuList }) => isRootMenuList ? "uppercase" : "capitalize"};
   animation: ${slideInAnimation} 0.3s ease-in-out forwards;
   &:hover {
@@ -122,7 +118,7 @@ const FooterWrapper = styled.div`
   padding: 12px;
   display: flex;
   justify-content: space-between;
-  align-item: center;
+  align-items: center;
 `;
 const Logo = styled.img`
   // width: 20px;
@@ -140,31 +136,15 @@ const DropdownSelect = styled.select`
 `;
 
 const TestMenu = (props) => {
-  const [isOpen, setIsOpen] = useState(true);
-  // console.log("🚀 ~ TestMenu ~ isOpen:", isOpen);
   const [openMenus, setOpenMenus] = useState({});
   console.log("🚀 ~ TestMenu ~ openMenus:", openMenus)
   const [isRootMenuList, setIsRootMenuList] = useState(true);
   const [currentMenuList, setcurrentMenuList] = useState([...props.items]);
   console.log("🚀 ~ TestMenu ~ currentMenuList:", currentMenuList);
 
-  // const toggleMenu = () => {
-  //   setIsOpen(!isOpen);
-  // };
-
-  // useEffect(() => {
-  //   if (isOpen) return;
-  //   const timeout = setTimeout(() => {
-  //     setIsOpen(true);
-  //   }, 300);
-  //   return () => {
-  //     clearTimeout(timeout);
-  //   };
-  // }, [isOpen]);
 
   const toggleMenuItem = (index, children) => {
     isRootMenuList && setcurrentMenuList({ ...children });
-    // isRootMenuList && setIsOpen(false);
     setIsRootMenuList(false);
     !isRootMenuList && setOpenMenus({
       ...openMenus,
@@ -172,7 +152,6 @@ const TestMenu = (props) => {
     });
   };
   const handleReturnMainMenu = () => {
-    // setIsOpen(false);
     setcurrentMenuList([...props.items]);
     setIsRootMenuList(true);
     setOpenMenus({});
@@ -214,8 +193,7 @@ const TestMenu = (props) => {
 
   return (
     <>
-      {/* {!isOpen && <button onClick={toggleMenu}>show</button>} */}
-      <MenuContainer isRootMenuList={isRootMenuList} isOpen={isOpen}>
+      <MenuContainer isRootMenuList={isRootMenuList} >
         {!isRootMenuList && (
           <SubMenuHeader>
             <Icon
@@ -230,9 +208,7 @@ const TestMenu = (props) => {
         <MenuHeader isRootMenuList={isRootMenuList}>
           {!isRootMenuList && currentMenuList.label}
         </MenuHeader>
-          {/* <button onClick={toggleMenu}>Toggle Menu</button> */}
           {renderMenuItems(currentMenuList)}
-          {/* {renderMenuItems(props?.items)} */}
 
           {isRootMenuList && (
             <Footer>
