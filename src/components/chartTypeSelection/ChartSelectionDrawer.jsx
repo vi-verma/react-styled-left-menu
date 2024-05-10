@@ -6,7 +6,7 @@ const ICON_PATH = "/src/assets/chartIcons/";
 const DrawerContainer = styled.div`
   width: 30vw;
   height: 92vh;
-  border-radius: 6px;
+  border-radius: 8px;
   font-family: "Lato", sans-serif;
   position: fixed;
   top: 10px;
@@ -39,25 +39,25 @@ const Divider = styled.hr`
   margin: 4px 0;
 `;
 const ListContainer = styled.div`
-  height: 84vh;
-  width: 100%;
-  margin: 0;
+  height: 82vh;
+  padding: 0;
+  margin: 1rem;
   overflow: auto;
 `;
 const List = styled.ul`
-  padding: 0 8px;
+  padding: 0;
+  margin:0;
   list-style: none;
   display: flex;
   flex-wrap: wrap;
 `;
 
 const ListItem = styled.li`
-  width: ${({ itemPerRow }) => `calc(${100 / itemPerRow}% - 6% )`};
-  height: ${({ itemPerRow }) => `calc(${30 / itemPerRow}vw - 2vw )`};
+  width: ${({ itemPerRow }) => `calc(${100 / itemPerRow}%)`};
+  height: ${({ itemPerRow }) => `calc(${29 / itemPerRow}vw)`};
   padding: 0;
-  margin: 1%;
-  padding: 2% 1%;
-  font-size: 0.7rem;
+  margin: 0;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -72,13 +72,15 @@ const ListItem = styled.li`
 
 const Icon = styled.img`
   width: 50%;
+  padding: 4px;
 `;
 
 const Label = styled.div`
-  padding: 2%;
+  font-size: 0.8rem;
+  padding: 4px;
 `;
 
-const ChartPickerDrawer = ({ isopen, data, itemPerRow = 3 }) => {
+const ChartPickerDrawer = ({ isopen, data, itemPerRow = 4 }) => {
   return (
     <DrawerContainer isopen={isopen}>
       <DrawerHeader>
