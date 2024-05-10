@@ -11,10 +11,10 @@ const DrawerContainer = styled.div`
   border-radius: 6px;
   font-family: "Lato", sans-serif;
   position: fixed;
-  top: 0;
+  top: 10px;
   right:10px;
   overflow: auto;
-  /* left: ${({ isopen }) => (isopen ? "0" : "-300px")}; */
+  /* right: ${({ isopen }) => (isopen ? "0" : "-300px")}; */
   background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   transition: left 0.3s ease-in-out;
@@ -52,7 +52,7 @@ const List = styled.ul`
 const ListItem = styled.li`
   width: ${({ itemPerRow }) => `calc(${100 / itemPerRow}% - 12% - 20px)`};
   height: auto;
-  padding: 6%;
+  padding: 2% 4%;
   margin: 10px;
   font-size: .7rem;
   display: flex;
@@ -70,14 +70,14 @@ const ListItem = styled.li`
 const Icon = styled.img`
   width: 100%;
   height: auto;
-  margin-bottom: 5px;
+  padding: 8px 2px;
 `;
 
 const Label = styled.span`
   padding: 2%;
 `;
 
-const ChartPickerDrawer = ({ isopen, data, itemPerRow = 2 }) => {
+const ChartPickerDrawer = ({ isopen, data, itemPerRow = 3 }) => {
   return (
     <DrawerContainer isopen={isopen}>
       <DrawerHeader>
