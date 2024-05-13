@@ -32,7 +32,7 @@ const WigetContainer = styled.div`
 `;
 const ContentHeader = styled.div`
   padding: 7px 10px;
-  cursor: pointer;
+  /* cursor: pointer; */
   background: ${({ ismainheader }) => (ismainheader ? "#337dff" : "#f3f3f3")};
   color: ${({ ismainheader }) => (ismainheader ? "#ffffff" : "#000000")};
   text-transform: capitalize;
@@ -87,7 +87,8 @@ const DisplaySetting = () => {
               <InputWrapper >
               <Input
                 onChange={handleRadio}
-                type="checkbox"
+                // type="checkbox"
+                type="radio"
                 id={item?.value}
                 name={item?.label}
                 value={item?.value}
