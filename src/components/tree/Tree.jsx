@@ -1,27 +1,35 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import plusIcon from "/src/assets/icons/plus_icon.png";
+import minusIcon from "/src/assets/icons/minus_icon.png";
 
-const ExpandCollapseIcon = styled.span`
-  height:12px;
-  width: 12px;
-  /* border-radius: 10px;
-  border: 1px solid grey;
-  border-radius: 50%; */
+const TreeNodeDiv = styled.div`
+  margin: 4px;
+`;
+const Icon = styled.img`
+  height: 14px;
+  width: 14px;
+`;
+const NodeText = styled.span`
+  margin-left: 4px;
 `;
 const TreeNode = ({ node }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  console.log("🚀 ~ TreeNode ~ isExpanded:", isExpanded);
 
   const handleToggle = () => {
     setIsExpanded(!isExpanded);
   };
 
   return (
-    <div>
+    <TreeNodeDiv>
       <div onClick={handleToggle}>
-        {/* need to hange with icons */}
-        <ExpandCollapseIcon>{isExpanded ? "-" : "+"}</ExpandCollapseIcon>
-        {node.name}
+ 
+        {isExpanded ? (
+          <Icon src={minusIcon} alt="Prefix Icon" />
+        ) : (
+          <Icon src={plusIcon} alt="Prefix Icon" />
+        )}
+        <NodeText>{node.name}</NodeText>
       </div>
       {isExpanded && node.children && (
         <div style={{ marginLeft: "20px" }}>
@@ -30,16 +38,15 @@ const TreeNode = ({ node }) => {
           ))}
         </div>
       )}
-    </div>
+    </TreeNodeDiv>
   );
 };
 
 const Tree = () => {
-  // Example usage
   const data = [
     {
       id: 1,
-      name: "Node 1",
+      name: "Color",
       children: [
         {
           id: 2,
@@ -50,6 +57,21 @@ const Tree = () => {
           ],
         },
         { id: 3, name: "Node 1.2" },
+      ],
+    },
+    {
+      id: 11,
+      name: "Chart_title",
+      children: [
+        {
+          id: 21,
+          name: "Node 1.11",
+          children: [
+            { id: 41, name: "Node 1.1.11" },
+            { id: 51, name: "Node 1.1.21" },
+          ],
+        },
+        { id: 31, name: "Node 1.21" },
       ],
     },
   ];

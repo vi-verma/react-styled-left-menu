@@ -22,7 +22,7 @@ const DATA_RADIO = [
 ];
 
 const WigetContainer = styled.div`
-  box-shadow: 10px 10px 12px -10px rgba(0, 0, 0, 0.75);
+ box-shadow: -8px 9px 34px -5px rgba(0,0,0,0.75);
   width: 240px;
   min-height: 100vh;
   overflow: auto;
@@ -31,21 +31,41 @@ const WigetContainer = styled.div`
   color: #0a0a0a;
 `;
 const ContentHeader = styled.div`
-  padding: 0.5rem 0.8rem;
+  padding: 7px 10px;
   cursor: pointer;
   background: ${({ ismainheader }) => (ismainheader ? "#337dff" : "#f3f3f3")};
   color: ${({ ismainheader }) => (ismainheader ? "#ffffff" : "#000000")};
   text-transform: capitalize;
-  font-weight: 500;
-  margin-top: ${({ ismarTop }) => (ismarTop && '10px')};
+  /* font-weight: 500; */
+  &:first-child {
+    margin-top: 10px;
+  }
+  &:not(:first-child){
+    margin-bottom: 10px;
+  }
 `;
 const ContentWrapper = styled.div`
+  font-size: 0.8rem;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
 `;
 const RadioBtnWrapper = styled.div`
-  padding: 0.3rem;
+  padding: 4px;
+  width: 46%;
+  display: flex;
+  justify-content: baseline;
+`;
+const Input = styled.input`
+width: 100%;
+/* height: 20%; */
+`;
+const InputWrapper = styled.div`
+/* width: 10%; */
+`;
+const Label = styled.label`
+  width: 90%;
+  margin-left: 4px;
 `;
 
 const DisplaySetting = () => {
@@ -64,20 +84,22 @@ const DisplaySetting = () => {
         {DATA_RADIO?.map((item) => {
           return (
             <RadioBtnWrapper>
-              <input
+              <InputWrapper >
+              <Input
                 onChange={handleRadio}
-                type="radio"
+                type="checkbox"
                 id={item?.value}
                 name={item?.label}
                 value={item?.value}
               />
-              <label htmlfor={item?.value}>{item?.label}</label>
+              </InputWrapper>
+              <Label htmlfor={item?.value}>{item?.label  }</Label>
             </RadioBtnWrapper>
           );
         })}
       </ContentWrapper>
 
-      <ContentHeader ismarTop={'true'}>Chart Axis Settings</ContentHeader>
+      <ContentHeader>Chart Axis Settings</ContentHeader>
       {DATA_RADIO?.map((item) => {
         return (
           <RadioBtnWrapper>
@@ -93,7 +115,7 @@ const DisplaySetting = () => {
         );
       })}
 
-      <ContentHeader ismarTop={'true'}>Other Settings</ContentHeader>
+      <ContentHeader>Other Settings</ContentHeader>
       <Tree />
       
     </WigetContainer>

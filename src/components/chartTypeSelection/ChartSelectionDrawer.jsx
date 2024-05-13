@@ -9,8 +9,8 @@ const DrawerContainer = styled.div`
   border-radius: 8px;
   font-family: "Lato", sans-serif;
   position: fixed;
-  top: 10px;
-  right: 10px;
+  top: 50px;
+  right: 50px;
   /* right: ${({ isopen }) => (isopen ? "0" : "-300px")}; */
   background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
