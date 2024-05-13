@@ -1,47 +1,8 @@
-import React, { useState } from "react";
 import styled from "styled-components";
-import plusIcon from "/src/assets/icons/plus_icon.png";
-import minusIcon from "/src/assets/icons/minus_icon.png";
-
-const TreeNodeDiv = styled.div`
+import TreeNode from "./TreeNode";
+const TreeWrapper = styled.div`
   margin: 4px;
 `;
-const Icon = styled.img`
-  height: 14px;
-  width: 14px;
-`;
-const NodeText = styled.span`
-  margin-left: 4px;
-`;
-const TreeNode = ({ node }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const handleToggle = () => {
-    setIsExpanded(!isExpanded);
-  };
-
-  return (
-    <TreeNodeDiv>
-      <div onClick={handleToggle}>
- 
-        {isExpanded ? (
-          <Icon src={minusIcon} alt="Prefix Icon" />
-        ) : (
-          <Icon src={plusIcon} alt="Prefix Icon" />
-        )}
-        <NodeText>{node.name}</NodeText>
-      </div>
-      {isExpanded && node.children && (
-        <div style={{ marginLeft: "20px" }}>
-          {node.children.map((childNode) => (
-            <TreeNode key={childNode.id} node={childNode} />
-          ))}
-        </div>
-      )}
-    </TreeNodeDiv>
-  );
-};
-
 const Tree = () => {
   const data = [
     {
@@ -76,11 +37,11 @@ const Tree = () => {
     },
   ];
   return (
-    <div>
+    <TreeWrapper>
       {data.map((node) => (
         <TreeNode key={node.id} node={node} />
       ))}
-    </div>
+    </TreeWrapper>
   );
 };
 
