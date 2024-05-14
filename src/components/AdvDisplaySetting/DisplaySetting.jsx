@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Tree from "../tree/Tree";
+import CustomCheckbox from "./CustomCheckbox";
 
 const DATA_RADIO = [
   {
@@ -22,28 +23,27 @@ const DATA_RADIO = [
 ];
 
 const WigetContainer = styled.div`
- box-shadow: -8px 9px 34px -5px rgba(0,0,0,0.75);
+  box-shadow: -8px 9px 34px -5px rgba(0, 0, 0, 0.75);
   width: 240px;
   min-height: 100vh;
   overflow: auto;
   font-family: "Lato", sans-serif;
-  font-size: 12px;
+  font-size: 1rem;
   color: #0a0a0a;
 `;
 const ContentHeader = styled.div`
   padding: 7px 10px;
-  /* cursor: pointer; */
   background: ${({ ismainheader }) => (ismainheader ? "#337dff" : "#f3f3f3")};
   color: ${({ ismainheader }) => (ismainheader ? "#ffffff" : "#000000")};
   text-transform: capitalize;
-  /* font-weight: 500; */
   &:first-child {
     margin-top: 10px;
   }
-  &:not(:first-child){
+  &:not(:first-child) {
     margin-bottom: 10px;
   }
 `;
+
 const ContentWrapper = styled.div`
   font-size: 0.8rem;
   width: 100%;
@@ -56,69 +56,50 @@ const RadioBtnWrapper = styled.div`
   display: flex;
   justify-content: baseline;
 `;
-const Input = styled.input`
-width: 100%;
-/* height: 20%; */
-`;
-const InputWrapper = styled.div`
-/* width: 10%; */
-`;
-const Label = styled.label`
-  width: 90%;
-  margin-left: 4px;
-`;
 
 const DisplaySetting = () => {
-  const handleRadio = (event) => {
-    console.log("event.target.value", event.target.value);
-    console.log("event.target.value", event.target.name);
-  };
 
+const handleChangecheckbox = (event) => {
+  console.log("handleChangecheckbox event.target.value", event.target.value);
+  console.log("handleChangecheckbox event.target.value", event.target.name);
+};
   return (
     <WigetContainer>
       <ContentHeader ismainheader={"true"}>
         Advance Display Settings
       </ContentHeader>
       <ContentHeader>Chart Settings</ContentHeader>
+
       <ContentWrapper>
         {DATA_RADIO?.map((item) => {
           return (
             <RadioBtnWrapper>
-              <InputWrapper >
-              <Input
-                onChange={handleRadio}
-                // type="checkbox"
-                type="radio"
-                id={item?.value}
-                name={item?.label}
-                value={item?.value}
-              />
-              </InputWrapper>
-              <Label htmlfor={item?.value}>{item?.label  }</Label>
+              <CustomCheckbox
+              onChange={handleChangecheckbox}
+              label={item.label}
+              name={item?.label}
+              value={item?.value}
+            />
             </RadioBtnWrapper>
           );
         })}
       </ContentWrapper>
 
       <ContentHeader>Chart Axis Settings</ContentHeader>
-      {DATA_RADIO?.map((item) => {
-        return (
-          <RadioBtnWrapper>
-            <input
-              onChange={handleRadio}
-              type="radio"
-              id={item?.value}
-              name={"chartSetting"}
-              value={item?.label}
+      <ContentWrapper>
+        {DATA_RADIO?.map((item) => {
+          return (
+            <CustomCheckbox
+              onChange={handleChangecheckbox}
+              label={item.label}
+              name={item?.label}
+              value={item?.value}
             />
-            <label htmlfor={item?.value}>{item?.label}</label>
-          </RadioBtnWrapper>
-        );
-      })}
-
+          );
+        })}
+      </ContentWrapper>
       <ContentHeader>Other Settings</ContentHeader>
       <Tree />
-      
     </WigetContainer>
   );
 };

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import TreeNode from "./TreeNode";
 const TreeWrapper = styled.div`
   margin: 4px;
+  font-size: 0.8rem;
 `;
 const Tree = () => {
   const data = [
