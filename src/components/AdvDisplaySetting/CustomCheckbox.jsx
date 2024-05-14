@@ -6,6 +6,7 @@ const CheckboxWrapper = styled.label`
   align-items: center;
   cursor: pointer;
   width: 100%;
+  padding: 4px;
 `;
 
 const CheckboxInput = styled.input`
