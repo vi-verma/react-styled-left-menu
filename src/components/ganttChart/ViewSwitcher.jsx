@@ -39,6 +39,12 @@ console.log('ViewMode',ViewMode)
       >
         Month
       </button>
+      <button
+        className="Button"
+        onClick={() => onViewModeChange(ViewMode.Year)}
+      >
+        Year
+      </button>
 
       <div className="Switch">
         <label className="Switch_Toggle">
