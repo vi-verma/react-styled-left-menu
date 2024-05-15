@@ -29,8 +29,8 @@ const CheckmarkInner = styled.div`
   position: absolute;
   display: inline-block;
   background-color: ${(props) => (props.checked ? "#2196f3" : "#eee")};
-  height: 0.5rem;
-  width: 0.5rem;
+  height: 0.48rem;
+  width: 0.48rem;
   margin: 0.1rem 0.1rem;
 
   border-radius: 50%;
