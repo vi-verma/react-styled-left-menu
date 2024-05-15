@@ -6,6 +6,7 @@ import { useState } from "react";
 import TestMenu from "./components/TestMenu";
 import ChartPickerDrawer from "./components/chartTypeSelection/ChartSelectionDrawer";
 import DisplaySetting from "./components/AdvDisplaySetting/DisplaySetting";
+import GanttChartComponent from "./components/ganttChart/GanttChartComponent";
 
 const menuItems = [
   {
@@ -230,7 +231,8 @@ function App() {
       <div>
         {/* <TestMenu items={menuItems} /> */}
         {/* <ChartPickerDrawer  data={CHART_TYPES} isopen={isopen} /> */}
-        <DisplaySetting />
+        {/* <DisplaySetting /> */}
+        <GanttChartComponent />
       </div>
     </>
   );
