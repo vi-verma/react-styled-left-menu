@@ -28,14 +28,14 @@ const Checkmark = styled.span`
 const CheckmarkInner = styled.div`
   position: absolute;
   display: inline-block;
-  background-color: ${(props) => (props.checked ? "#2196f3" : "#eee")};
+  background-color: ${(props) => (props.checked ? "#337dff" : "#eee")};
   height: 0.48rem;
-  width: 0.48rem;
+  width: 0.48rem; 
   margin: 0.1rem 0.1rem;
 
   border-radius: 50%;
   border: ${(props) =>
-    props.checked ? "1px solid #2196f3" : "1px solid #b9b9b9"};
+    props.checked ? "1px solid #337dff" : "1px solid #b9b9b9"};
 `;
 
 const CheckboxLabel = styled.span`
