@@ -256,8 +256,10 @@ const CHART_DATA_TIMESTAMP = [
 
 function App() {
   // const [isopen, setIsopen] = useState(true);
-console.log('CHART_DATA_TIMESTAMP',CHART_DATA_TIMESTAMP)
+
   const chartProps = {
+    height: 300,
+    width: 600,
     data: CHART_DATA_TIMESTAMP,
     xField: "task",
     yField: ["endTime", "startTime"],
@@ -268,7 +270,9 @@ console.log('CHART_DATA_TIMESTAMP',CHART_DATA_TIMESTAMP)
 
   return (
     <>
-      <div>
+      <div 
+      // style={{width: '200px', height: '200px', overflow: 'auto'}}
+      >
         {/* <TestMenu items={menuItems} /> */}
         {/* <ChartPickerDrawer  data={CHART_TYPES} isopen={isopen} /> */}
         {/* <DisplaySetting /> */}
