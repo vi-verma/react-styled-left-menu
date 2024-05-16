@@ -239,30 +239,31 @@ const CHART_DATA = [
 const CHART_DATA_TIMESTAMP = [
   {
     task: "Task 1",
-    startTime: new Date("2024-05-01").getTime(),
-    endTime: new Date("2024-05-05").getTime(),
+    startTime: "2024-05-01",
+    endTime: "2024-05-05",
   },
   {
     task: "Task 2",
-    startTime: new Date("2024-05-03").getTime(),
-    endTime: new Date("2024-05-08").getTime(),
+    startTime: "2024-05-03",
+    endTime: "2024-05-08",
   },
   {
     task: "Task 3",
-    startTime: new Date("2024-05-06").getTime(),
-    endTime: new Date("2024-05-12").getTime(),
+    startTime: "2024-05-06",
+    endTime: "2024-05-12",
   },
 ];
 
 function App() {
   // const [isopen, setIsopen] = useState(true);
-
+console.log('CHART_DATA_TIMESTAMP',CHART_DATA_TIMESTAMP)
   const chartProps = {
     data: CHART_DATA_TIMESTAMP,
     xField: "task",
     yField: ["endTime", "startTime"],
     showToolTip: true,
     legengFieldName: "task",
+    // barUniColorCode:'#38b2a6'
   };
 
   return (
