@@ -1,0 +1,16 @@
+.gantt-container {
+    display: flex;
+  }
+  
+  .x-axis-labels {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align labels to the right side of the container */
+    padding-right: 10px; /* Add some padding to separate labels from the chart */
+  }
+  
+  .x-axis-label {
+    margin-bottom: 10px; /* Add some spacing between labels */
+    font-size: 12px; /* Adjust font size */
+    color: #666; /* Adjust label color */
+  }

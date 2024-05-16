@@ -1,15 +1,15 @@
 export function initTasks() {
     const currentDate = new Date();
     const tasks = [
-      {
-        start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 1),
-        end: new Date(currentDate.getFullYear(), currentDate.getMonth(), 15),
-        name: "Some Project",
-        id: "ProjectSample",
-        progress: 25,
-        type: "project",
-        hideChildren: false
-      },
+      // {
+      //   start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 1),
+      //   end: new Date(currentDate.getFullYear(), currentDate.getMonth(), 15),
+      //   name: "Some Project",
+      //   id: "ProjectSample",
+      //   progress: 25,
+      //   type: "project",
+      //   hideChildren: false
+      // },
       {
         start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 1),
         end: new Date(
@@ -21,7 +21,7 @@ export function initTasks() {
         ),
         name: "Idea",
         id: "Task 0",
-        progress: 45,
+        // progress: 45,
         type: "task",
         project: "ProjectSample"
       },
@@ -30,7 +30,7 @@ export function initTasks() {
         end: new Date(currentDate.getFullYear(), currentDate.getMonth(), 4, 0, 0),
         name: "Research",
         id: "Task 1",
-        progress: 65,
+        // progress: 65,
         // dependencies: ["Task 0"],
         type: "task",
         project: "ProjectSample"

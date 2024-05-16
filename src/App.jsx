@@ -7,6 +7,8 @@ import TestMenu from "./components/TestMenu";
 import ChartPickerDrawer from "./components/chartTypeSelection/ChartSelectionDrawer";
 import DisplaySetting from "./components/AdvDisplaySetting/DisplaySetting";
 import GanttChartComponent from "./components/ganttChart/GanttChartComponent";
+import GantChartSimple from "./components/ganttChart/GantChartSimple";
+import GanttChartAntPlot from "./components/GanttChartAntPlot/GanttChartAntPlot";
 
 const menuItems = [
   {
@@ -223,6 +225,17 @@ const CHART_TYPES = [
   },
 ];
 
+const CHART_DATA = [
+  { name: 'event planning', task: 'Task 1', startTime: 1, endTime: 4 },
+  { name: 'layout logistics',task: 'Task 1', startTime: 3, endTime: 13 },
+  { name: 'select vendors', task: 'Task 1',startTime: 5, endTime: 8 },
+  { name: 'hire venue',task: 'Task 1', startTime: 9, endTime: 13 },
+  { name: 'hire caterer', task: 'Task 1',startTime: 10, endTime: 14 },
+  { name: 'hire event decorators', task: 'Task 1',startTime: 12, endTime: 17 },
+  { name: 'rehearsal', task: 'Task 1',startTime: 14, endTime: 16 },
+  { name: 'event celebration',task: 'Task 1', startTime: 17, endTime: 18 },
+];
+
 function App() {
   const [isopen, setIsopen] = useState(true);
 
@@ -232,7 +245,9 @@ function App() {
         {/* <TestMenu items={menuItems} /> */}
         {/* <ChartPickerDrawer  data={CHART_TYPES} isopen={isopen} /> */}
         {/* <DisplaySetting /> */}
-        <GanttChartComponent />
+        {/* <GanttChartComponent /> */}
+        {/* <GantChartSimple /> */}
+        <GanttChartAntPlot data={CHART_DATA} showToolTip={true} legengFieldName={'name'}/>
       </div>
     </>
   );
