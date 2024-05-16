@@ -163,81 +163,107 @@ const menuItems = [
 
 const CHART_TYPES = [
   {
-      id:1,
-      label:'Bar Chart',
-      // icon: 'bar_chart.png',
+    id: 1,
+    label: "Bar Chart",
+    // icon: 'bar_chart.png',
   },
   {
-      id:2,
-      label:'Horizontal Bar Chart',
-      icon: 'horizontal_bar_chart.png',
+    id: 2,
+    label: "Horizontal Bar Chart",
+    icon: "horizontal_bar_chart.png",
   },
   {
-      id:3,
-      label:'Water Fall Chart',
-      icon: 'water_fall_chart.png',
+    id: 3,
+    label: "Water Fall Chart",
+    icon: "water_fall_chart.png",
   },
   {
-      id:4,
-      label:'Horizontal WaterFall Chart',
-      icon: 'horizontal_waterfall_chart.png',
+    id: 4,
+    label: "Horizontal WaterFall Chart",
+    icon: "horizontal_waterfall_chart.png",
   },
   {
-      id:5,
-      label:'Stacked Chart',
-      icon: 'stacked_chart.png',
+    id: 5,
+    label: "Stacked Chart",
+    icon: "stacked_chart.png",
   },
   {
-      id:6,
-      label:'Area Chart',
-      icon: 'area_chart.png',
+    id: 6,
+    label: "Area Chart",
+    icon: "area_chart.png",
   },
   {
-      id:7,
-      label:'Treanding Chart',
-      icon: 'treanding_chart.png',
+    id: 7,
+    label: "Treanding Chart",
+    icon: "treanding_chart.png",
   },
   {
-      id:8,
-      label:'Line Bar Chart',
-      icon: 'line_bar_chart.png',
+    id: 8,
+    label: "Line Bar Chart",
+    icon: "line_bar_chart.png",
   },
 
   {
-      id:9,
-      label:'Dash Line Chart',
-      icon: 'dash_line_chart_1.png',
+    id: 9,
+    label: "Dash Line Chart",
+    icon: "dash_line_chart_1.png",
   },
   {
-      id:10,
-      label:'Pie Chart',
-      icon: 'pie_chart.png',
+    id: 10,
+    label: "Pie Chart",
+    icon: "pie_chart.png",
   },
   {
-      id:11,
-      label:'Tree Chart',
-      icon: 'tree_chart.png',
+    id: 11,
+    label: "Tree Chart",
+    icon: "tree_chart.png",
   },
   {
-      id:12,
-      label:'Donut Chart',
-      icon: 'donut_chart.png',
+    id: 12,
+    label: "Donut Chart",
+    icon: "donut_chart.png",
   },
 ];
 
 const CHART_DATA = [
-  { name: 'event planning', task: 'Task 1', startTime: 1, endTime: 4 },
-  { name: 'layout logistics',task: 'Task 1', startTime: 3, endTime: 13 },
-  { name: 'select vendors', task: 'Task 1',startTime: 5, endTime: 8 },
-  { name: 'hire venue',task: 'Task 1', startTime: 9, endTime: 13 },
-  { name: 'hire caterer', task: 'Task 1',startTime: 10, endTime: 14 },
-  { name: 'hire event decorators', task: 'Task 1',startTime: 12, endTime: 17 },
-  { name: 'rehearsal', task: 'Task 1',startTime: 14, endTime: 16 },
-  { name: 'event celebration',task: 'Task 1', startTime: 17, endTime: 18 },
+  { name: "event planning", startTime: 1, endTime: 4 },
+  { name: "layout logistics", startTime: 3, endTime: 13 },
+  { name: "select vendors", startTime: 5, endTime: 8 },
+  { name: "hire venue", startTime: 9, endTime: 13 },
+  { name: "hire caterer", startTime: 10, endTime: 14 },
+  { name: "hire event decorators", startTime: 12, endTime: 17 },
+  { name: "rehearsal", startTime: 14, endTime: 16 },
+  { name: "event celebration", startTime: 17, endTime: 18 },
+];
+
+const CHART_DATA_TIMESTAMP = [
+  {
+    task: "Task 1",
+    startTime: new Date("2024-05-01").getTime(),
+    endTime: new Date("2024-05-05").getTime(),
+  },
+  {
+    task: "Task 2",
+    startTime: new Date("2024-05-03").getTime(),
+    endTime: new Date("2024-05-08").getTime(),
+  },
+  {
+    task: "Task 3",
+    startTime: new Date("2024-05-06").getTime(),
+    endTime: new Date("2024-05-12").getTime(),
+  },
 ];
 
 function App() {
-  const [isopen, setIsopen] = useState(true);
+  // const [isopen, setIsopen] = useState(true);
+
+  const chartProps = {
+    data: CHART_DATA_TIMESTAMP,
+    xField: "task",
+    yField: ["endTime", "startTime"],
+    showToolTip: true,
+    // legengFieldName: "task",
+  };
 
   return (
     <>
@@ -247,7 +273,7 @@ function App() {
         {/* <DisplaySetting /> */}
         {/* <GanttChartComponent /> */}
         {/* <GantChartSimple /> */}
-        <GanttChartAntPlot data={CHART_DATA} showToolTip={true} legengFieldName={'name'}/>
+        <GanttChartAntPlot {...chartProps}/>
       </div>
     </>
   );
