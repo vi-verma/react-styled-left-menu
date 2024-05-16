@@ -1,5 +1,7 @@
 export const customDataFormatter = (text='', typeConveersion) => {
     let output = "-";
+    if(!text && typeof text !== 'number') return output;
+    
   switch (typeConveersion) {
     case "dateOnly":
         output =  new Date(text).getDate();
