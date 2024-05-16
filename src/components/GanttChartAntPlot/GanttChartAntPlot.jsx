@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Bar } from '@ant-design/plots';
+import { customDataFormatter } from './helper';
 
 const GanttChartAntPlot = ({ data=[],xField=undefined, yField=undefined, showToolTip=true,legengFieldName=undefined, showLegend=true,  }) => {
 
@@ -9,7 +10,7 @@ const GanttChartAntPlot = ({ data=[],xField=undefined, yField=undefined, showToo
     xField: xField,
     yField: yField,
     colorField: legengFieldName,
-    tooltip: { items: [{ channel: 'y1' , valueFormatter: (time) => new Date(time).toLocaleDateString()}, { channel: 'y', valueFormatter: (time) => new Date(time).toLocaleDateString() }] },
+    tooltip: { items: [{ channel: 'y1' , valueFormatter: (time) => customDataFormatter(time, 'date')}, { channel: 'y', valueFormatter: (time) => customDataFormatter(time, 'date') }] },
     // legend: {
     //   color: { size: 72, autoWrap: true, maxRows: 3, cols: 6 },
     // },
@@ -27,7 +28,7 @@ const GanttChartAntPlot = ({ data=[],xField=undefined, yField=undefined, showToo
         labelFormatter:(name, i)=> name ,
       },
       y: {
-        labelFormatter:(time, i)=> new Date(time).getDate(),
+        labelFormatter:(time, i)=> customDataFormatter(time, 'dateOnly'),
       },
       
     },
