@@ -262,7 +262,7 @@ function App() {
     xField: "task",
     yField: ["endTime", "startTime"],
     showToolTip: true,
-    // legengFieldName: "task",
+    legengFieldName: "task",
   };
 
   return (

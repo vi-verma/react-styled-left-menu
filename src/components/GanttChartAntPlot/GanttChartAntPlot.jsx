@@ -9,14 +9,15 @@ const GanttChartAntPlot = ({ data=[],xField=undefined, yField=undefined, showToo
     xField: xField,
     yField: yField,
     colorField: legengFieldName,
+    tooltip: { items: [{ channel: 'y1' , valueFormatter: (time) => new Date(time).toLocaleDateString()}, { channel: 'y', valueFormatter: (time) => new Date(time).toLocaleDateString() }] },
     // legend: {
     //   color: { size: 72, autoWrap: true, maxRows: 3, cols: 6 },
     // },
-      style: {
+    //   style: {
     //   textAnchor: (d) => (d.name ? 'right' : 'start'),
       // fill: '#38b2a6',
       // dx: (d) => (+d.frequency > 0.008 ? -5 : 5),
-    },
+    // },
     interaction: {
       elementHighlightByColor: false,
       tooltip: showToolTip,
