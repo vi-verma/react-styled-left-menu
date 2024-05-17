@@ -274,15 +274,16 @@ function App() {
   const ganttChartProps = {
     data: TASK_DATA,
     height: 300,
+    width:'100%',
     barBackgroundColor: '#45b691',
+    title: 'Gantt Chart',
     startDateKey:'Start_Date',
     endDateKey: 'End_Date',
     taskNameKey: 'Sub_Activity',
     projectName: 'Sample Project',
     hide_y_axis: true,
     hide_x_axis: true,
-    hide_label: true,
-    width:'70%',
+    hide_label: false,
     hide_title:false,
     // hide_x_axis_border={hide_x_axis_border}
     // hide_y_axis_border={hide_y_axis_border}

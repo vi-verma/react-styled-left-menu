@@ -106,7 +106,7 @@ console.log('renderrr')
         view={view}
       />
 
-      {hide_title && title && <h3>{title}</h3>}
+      {!hide_title && title && <h3>{title}</h3>}
       {tasks?.length > 0 && (
         <Gantt
           tasks={tasks}

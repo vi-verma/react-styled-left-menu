@@ -1,8 +1,8 @@
-import React from "react";
+import React, { memo } from "react";
 import "gantt-task-react/dist/index.css";
 import { ViewMode } from "gantt-task-react";
 
-export const ViewSwitcher = ({
+export const ViewSwitcher = memo(({
   onViewModeChange,
   onViewListChange,
   isChecked,
@@ -11,7 +11,7 @@ export const ViewSwitcher = ({
   return (
     <div>
       {ViewMode &&
-        Object.values(ViewMode).map((i) => {
+        Object.values(ViewMode).slice(3).map((i) => {
           return (
             <button
             key={i}
@@ -36,4 +36,4 @@ export const ViewSwitcher = ({
       </div>
     </div>
   );
-};
+});
