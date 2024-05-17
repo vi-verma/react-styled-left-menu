@@ -6,45 +6,23 @@ import { ViewMode } from "gantt-task-react";
 export const ViewSwitcher = ({
   onViewModeChange,
   onViewListChange,
-  isChecked
+  isChecked,
+  view,
 }) => {
-
-console.log('ViewMode',ViewMode)
+  console.log("ViewMode", ViewMode);
   return (
-    <div className="ViewContainer">
-      <button
-        className="Button"
-        onClick={() => onViewModeChange(ViewMode.QuarterDay)}
-      >
-        Quarter of Day
-      </button>
-      <button
-        className="Button"
-        onClick={() => onViewModeChange(ViewMode.HalfDay)}
-      >
-        Half of Day
-      </button>
-      <button className="Button" onClick={() => onViewModeChange(ViewMode.Day)}>
-        Day
-      </button>
-      <button
-        className="Button"
-        onClick={() => onViewModeChange(ViewMode.Week)}
-      >
-        Week
-      </button>
-      <button
-        className="Button"
-        onClick={() => onViewModeChange(ViewMode.Month)}
-      >
-        Month
-      </button>
-      <button
-        className="Button"
-        onClick={() => onViewModeChange(ViewMode.Year)}
-      >
-        Year
-      </button>
+    <div>
+      {ViewMode &&
+        Object.keys(ViewMode).map((i) => {
+          return (
+            <button
+              style={{ background: view === i ? "grey" : "" }}
+              onClick={() => onViewModeChange(ViewMode.QuarterDay)}
+            >
+              {i}
+            </button>
+          );
+        })}
 
       <div className="Switch">
         <label className="Switch_Toggle">

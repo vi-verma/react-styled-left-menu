@@ -2,13 +2,16 @@
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 // import './App.css'
-import { useState } from "react";
-import TestMenu from "./components/TestMenu";
-import ChartPickerDrawer from "./components/chartTypeSelection/ChartSelectionDrawer";
-import DisplaySetting from "./components/AdvDisplaySetting/DisplaySetting";
+import { useEffect, useState } from "react";
+import 'gantt-task-react/dist/index.css';
+// import TestMenu from "./components/TestMenu";
+// import ChartPickerDrawer from "./components/chartTypeSelection/ChartSelectionDrawer";
+// import DisplaySetting from "./components/AdvDisplaySetting/DisplaySetting";
 import GanttChartComponent from "./components/ganttChart/GanttChartComponent";
+// import GanttChartAntPlot from "./components/GanttChartAntPlot/GanttChartAntPlot";
+
 import GantChartSimple from "./components/ganttChart/GantChartSimple";
-import GanttChartAntPlot from "./components/GanttChartAntPlot/GanttChartAntPlot";
+import { TASK_DATA } from "./components/ganttChart/helper";
 
 const menuItems = [
   {
@@ -259,7 +262,7 @@ function App() {
 
   const chartProps = {
     height: 300,
-    width: 600,
+    width: '300px',
     data: CHART_DATA_TIMESTAMP,
     xField: "task",
     yField: ["endTime", "startTime"],
@@ -268,17 +271,46 @@ function App() {
     // barUniColorCode:'#38b2a6'
   };
 
+
+  const ganttChartProps = {
+    data: TASK_DATA,
+    ganttHeight: 300,
+    barBackgroundColor: "blue",
+    // todayColor:'green',
+    startDateKey:'Start_Date',
+    endDateKey: 'End_Date',
+    taskNameKey: 'Sub_Activity',
+    projectName: 'Sample Project',
+    hide_y_axis: false,
+    hide_x_axis: false,
+    width:'70%',
+
+    // hide_label={hide_label}
+    // hide_y_axis={hide_y_axis}
+    // hide_x_axis={hide_x_axis}
+    // hide_title={hide_title}
+    // hide_x_axis_border={hide_x_axis_border}
+    // hide_y_axis_border={hide_y_axis_border}
+    // hide_grid={hide_grid}
+    // hide_legend={insights ? hide_legend : false}
+    // hide_border={hide_border}
+    // hide_tooltip={hide_tooltip}
+    // hide_x_axis_label={hide_x_axis_label}
+    // hide_y_axis_label={hide_y_axis_label}
+    // Alignments={props.columnsAligments}
+  };
+
   return (
     <>
-      <div 
+      <div
       // style={{width: '200px', height: '200px', overflow: 'auto'}}
       >
         {/* <TestMenu items={menuItems} /> */}
         {/* <ChartPickerDrawer  data={CHART_TYPES} isopen={isopen} /> */}
         {/* <DisplaySetting /> */}
-        {/* <GanttChartComponent /> */}
-        {/* <GantChartSimple /> */}
-        <GanttChartAntPlot {...chartProps}/>
+        <GantChartSimple {...ganttChartProps} />
+        {/* <GanttChartAntPlot {...chartProps}/> */}
+        {/* <GanttChartComponent data={TASK_DATA}/> */}
       </div>
     </>
   );

@@ -1,40 +1,38 @@
-// import React from 'react';
-// import { Gantt, ViewMode } from 'gantt-task-react';
-// import "gantt-task-react/dist/index.css";
-
-// const GanttChartComponent = () => {
-//     let tasks = [
-//         {
-//           start: new Date(2020, 1, 1),
-//           end: new Date(2020, 1, 2),
-//           name: 'Idea',
-//           id: 'Task 0',
-//           type:'task',
-//           progress: 45,
-//           isDisabled: true,
-//           styles: { progressColor: '#ffbb54', progressSelectedColor: '#ff9e0d' },
-//         }
-//     ];
-//   return (<Gantt tasks={tasks} />)
-// }
-
-// export default GanttChartComponent;
 
 
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
 import { ViewMode, Gantt } from "gantt-task-react";
 import { ViewSwitcher } from "./ViewSwitcher";
 import { getStartEndDateForProject, initTasks } from "./helper";
-//Init
-const GanttChartComponent = () => {
+
+const GanttChartComponent = ({ data, ganttHeight=400 }) => {
   const [view, setView] = useState(ViewMode.Day);
-  const [tasks, setTasks] = useState(initTasks());
-  const [isChecked, setIsChecked] = useState(true);
-  
+  const [tasks, setTasks] = useState([]);
+  const [isChecked, setIsChecked] = useState(false);
+
+
+  useEffect(() => {
+    if(data.length>0){
+    const makeData = data?.map((i) => ({
+      id: i.id,
+      start: new Date(i?.Start_Date),
+      end: new Date(i?.End_Date),
+      name: i?.Sub_Activity,
+      
+      type: "task",
+      project: "ProjectSample",
+    }));
+    setTasks([...makeData]);
+    };
+  }, []);
+
   // specify coumn width on changing viewmode (day/month/yr basis)
-  let columnWidth = 50;
-  if (view === ViewMode.Month) {
-    columnWidth = 300;
+  let columnWidth = 30;
+  if (view === ViewMode.Year){
+    columnWidth = 100;
+  }else if (view === ViewMode.Month) {
+    columnWidth = 80;
   } else if (view === ViewMode.Week) {
     columnWidth = 250;
   }
@@ -78,14 +76,15 @@ const GanttChartComponent = () => {
   };
 
   const handleSelect = (task, isSelected) => {
-    console.log(task.name + " has " + (isSelected ? "selected" : "unselected"));
+    console.log('select======',task.name + " has " + (isSelected ? "selected" : "unselected"));
+    console.log('selected task',task)
   };
 
   const handleExpanderClick = (task) => {
     setTasks(tasks.map((t) => (t.id === task.id ? task : t)));
     console.log("On expander click Id:" + task.id);
   };
-
+  
 
   return (
     <div>
@@ -93,37 +92,29 @@ const GanttChartComponent = () => {
         onViewModeChange={(viewMode) => setView(viewMode)}
         onViewListChange={setIsChecked}
         isChecked={isChecked}
+        view={view}
       />
       <h3>Gantt Chart</h3>
+      {tasks?.length > 0 && (
       <Gantt
         tasks={tasks}
         viewMode={view}
-        onDateChange={handleTaskChange}
-        onDelete={handleTaskDelete}
-        onProgressChange={handleProgressChange}
-        onDoubleClick={handleDblClick}
+        // onDateChange={handleTaskChange}
+        // onDelete={handleTaskDelete}
+        // onProgressChange={handleProgressChange}
+        // onDoubleClick={handleDblClick}
         onSelect={handleSelect}
         onExpanderClick={handleExpanderClick}
         listCellWidth={isChecked ? "155px" : ""}
         columnWidth={columnWidth}
         barBackgroundColor="blue"
         rowHeight={40}
-        fontSize={12}
-      />
-      {/* <h3>Gantt With Limited Height</h3>
-      <Gantt
-        tasks={tasks}
-        viewMode={view}
-        onDateChange={handleTaskChange}
-        onDelete={handleTaskDelete}
-        onProgressChange={handleProgressChange}
-        onDoubleClick={handleDblClick}
-        onSelect={handleSelect}
-        onExpanderClick={handleExpanderClick}
-        listCellWidth={isChecked ? "155px" : ""}
-        ganttHeight={200}
-        columnWidth={columnWidth}
-      /> */}
+          
+          fontSize={12}
+          ganttHeight={300}
+          // todayColor="green"
+        />
+      )}
     </div>
   );
 };

@@ -4,7 +4,7 @@ import { customDataFormatter } from "./helper";
 
 const GanttChartAntPlot = ({
     height= 300,
-    width= 600,
+    width= 200,
   data = [],
   xField = undefined,
   yField = undefined,
@@ -24,7 +24,6 @@ const GanttChartAntPlot = ({
   const config = {
     data: data,
     height,
-    width,
     xField: xField,
     yField: yField,
     colorField: legengFieldName,
