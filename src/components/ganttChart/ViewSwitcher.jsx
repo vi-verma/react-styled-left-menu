@@ -8,13 +8,13 @@ export const ViewSwitcher = ({
   isChecked,
   view,
 }) => {
-  console.log("ViewMode", ViewMode);
   return (
     <div>
       {ViewMode &&
         Object.values(ViewMode).map((i) => {
           return (
             <button
+            key={i}
               style={{ background: view === i ? "grey" : "" }}
               onClick={() => onViewModeChange(i)}
             >

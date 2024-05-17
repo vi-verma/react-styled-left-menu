@@ -274,9 +274,8 @@ function App() {
 
   const ganttChartProps = {
     data: TASK_DATA,
-    ganttHeight: 300,
-    barBackgroundColor: "blue",
-    // todayColor:'green',
+    height: 300,
+    barBackgroundColor: '#45b691',
     startDateKey:'Start_Date',
     endDateKey: 'End_Date',
     taskNameKey: 'Sub_Activity',
@@ -284,11 +283,9 @@ function App() {
     hide_y_axis: false,
     hide_x_axis: false,
     width:'70%',
+    hide_title:false,
 
     // hide_label={hide_label}
-    // hide_y_axis={hide_y_axis}
-    // hide_x_axis={hide_x_axis}
-    // hide_title={hide_title}
     // hide_x_axis_border={hide_x_axis_border}
     // hide_y_axis_border={hide_y_axis_border}
     // hide_grid={hide_grid}

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ViewMode, Gantt } from "gantt-task-react";
 import { ViewSwitcher } from "./ViewSwitcher";
 import styled, { createGlobalStyle } from "styled-components";
-// import { getStartEndDateForProject, initTasks } from "./helper";
+import CustomTooltip from "./CustomTooltip";
 
 const GanttWrapper = styled.div`
   width: ${({ width }) => width};
@@ -23,31 +23,22 @@ const GanttWrapper = styled.div`
   }
 `;
 
+
+
 const GantChartSimple = ({
   data,
-  ganttHeight = 300,
+  title,
+  hide_title,
+  height = 300,
   width = 100,
-  barBackgroundColor,
+  barBackgroundColor='blue',
   projectName = "",
-  hide_y_axis,
-  hide_x_axis,
-  // todayColor={undefined},
+  hide_y_axis=false,
+  hide_x_axis=false,
 }) => {
   const [view, setView] = useState(ViewMode.Week);
   const [tasks, setTasks] = useState([]);
   const [isChecked, setIsChecked] = useState(false);
-
-  // specify coumn width on changing viewmode (day/month/yr basis)
-  let columnWidth = 30;
-  if (view === ViewMode.Year) {
-    columnWidth = 100;
-  } else if (view === ViewMode.Month) {
-    columnWidth = 80;
-  } else if (view === ViewMode.Week) {
-    columnWidth = 60;
-  } else {
-    columnWidth = 40;
-  }
 
   useEffect(() => {
     if (data.length > 0) {
@@ -64,14 +55,26 @@ const GantChartSimple = ({
     }
   }, []);
 
+  // specify coumn width on changing viewmode (day/month/yr basis)
+  let columnWidth = 30;
+  if (view === ViewMode.Year) {
+    columnWidth = 100;
+  } else if (view === ViewMode.Month) {
+    columnWidth = 80;
+  } else if (view === ViewMode.Week) {
+    columnWidth = 60;
+  } else {
+    columnWidth = 40;
+  }
+
   const handleSelect = (task, isSelected) => {
     console.log("selected task", task);
   };
 
   return (
     <GanttWrapper
-      hide_y_axis={hide_y_axis}
-      hide_x_axis={hide_x_axis}
+      hide_y_axis={"true" || hide_y_axis}
+      hide_x_axis={"true" || hide_x_axis}
       width={width}
     >
       <div style={{ border: "1px solid red" }}>
@@ -82,7 +85,7 @@ const GantChartSimple = ({
           view={view}
         />
 
-        <h3>Gantt Chart</h3>
+        {hide_title && title && <h3>{title}</h3>}
         {tasks?.length > 0 && (
           <Gantt
             tasks={tasks}
@@ -90,14 +93,13 @@ const GantChartSimple = ({
             listCellWidth={isChecked ? "155px" : ""}
             columnWidth={columnWidth}
             onSelect={handleSelect}
-            barBackgroundColor={barBackgroundColor || "blue"}
+            barBackgroundColor={barBackgroundColor}
             rowHeight={40}
             fontSize={12}
-            ganttHeight={ganttHeight}
+            ganttHeight={height}
             // ganttWidth={300}
             showLine={false}
-            // todayColor={todayColor}
-            // TooltipContent={(data, i)=><div>Custom tooltip</div>}
+            TooltipContent={({task})=> <CustomTooltip task={task}/>}
           />
         )}
       </div>
