@@ -53,11 +53,9 @@ const GantChartSimple = ({
   const [view, setView] = useState(ViewMode.Week);
   const [tasks, setTasks] = useState([]);
   const [isChecked, setIsChecked] = useState(false);
-console.log('renderrr')
+
   useEffect(() => {
     if (data.length > 0 && !tasks.length) {
-console.log('renderrr')
-
       const makeData = data?.map((i) => ({
         id: i.id,
         start: new Date(i?.[startDateKey]),
@@ -72,8 +70,7 @@ console.log('renderrr')
   }, []);
   
   // specify coumn width on changing viewmode (day/month/yr basis)
-  // const columnWidthFn = useMemo(() => {
-  //   console.log("memo oooo ", +x)
+  const columnWidthFn = useMemo(() => {
     let columnWidth = 30;
     if (view === ViewMode.Year) {
       columnWidth = 100;
@@ -84,11 +81,11 @@ console.log('renderrr')
     } else {
       columnWidth = 40;
     }
-  //   return columnWidth;
-  // }, [view]);
+    return columnWidth;
+  }, [view]);
 
   const handleSelect = (task, isSelected) => {
-    console.log("selected task", task);
+    console.log("isSelected", isSelected,"selected task", task);
   };
 
   return (
@@ -112,7 +109,7 @@ console.log('renderrr')
           tasks={tasks}
           viewMode={view}
           listCellWidth={isChecked ? "155px" : ""}
-          columnWidth={columnWidth}
+          columnWidth={columnWidthFn}
           onSelect={handleSelect}
           barBackgroundColor={barBackgroundColor}
           rowHeight={40}
