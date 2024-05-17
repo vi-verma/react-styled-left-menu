@@ -61,7 +61,7 @@ const GantChartSimple = ({
         start: new Date(i?.[startDateKey]),
         end: new Date(i?.[endDateKey]),
         name: i?.[taskNameKey],
-
+        progress: 0,
         type: "task",
         project: projectName,
       }));
