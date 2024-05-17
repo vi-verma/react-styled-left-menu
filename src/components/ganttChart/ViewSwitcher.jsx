@@ -13,11 +13,11 @@ export const ViewSwitcher = ({
   return (
     <div>
       {ViewMode &&
-        Object.keys(ViewMode).map((i) => {
+        Object.values(ViewMode).map((i) => {
           return (
             <button
               style={{ background: view === i ? "grey" : "" }}
-              onClick={() => onViewModeChange(ViewMode.QuarterDay)}
+              onClick={() => onViewModeChange(i)}
             >
               {i}
             </button>
