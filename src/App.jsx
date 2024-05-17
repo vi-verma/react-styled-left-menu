@@ -1,4 +1,3 @@
-// import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 // import './App.css'
@@ -164,112 +163,112 @@ const menuItems = [
   },
 ];
 
-const CHART_TYPES = [
-  {
-    id: 1,
-    label: "Bar Chart",
-    // icon: 'bar_chart.png',
-  },
-  {
-    id: 2,
-    label: "Horizontal Bar Chart",
-    icon: "horizontal_bar_chart.png",
-  },
-  {
-    id: 3,
-    label: "Water Fall Chart",
-    icon: "water_fall_chart.png",
-  },
-  {
-    id: 4,
-    label: "Horizontal WaterFall Chart",
-    icon: "horizontal_waterfall_chart.png",
-  },
-  {
-    id: 5,
-    label: "Stacked Chart",
-    icon: "stacked_chart.png",
-  },
-  {
-    id: 6,
-    label: "Area Chart",
-    icon: "area_chart.png",
-  },
-  {
-    id: 7,
-    label: "Treanding Chart",
-    icon: "treanding_chart.png",
-  },
-  {
-    id: 8,
-    label: "Line Bar Chart",
-    icon: "line_bar_chart.png",
-  },
+// const CHART_TYPES = [
+//   {
+//     id: 1,
+//     label: "Bar Chart",
+//     // icon: 'bar_chart.png',
+//   },
+//   {
+//     id: 2,
+//     label: "Horizontal Bar Chart",
+//     icon: "horizontal_bar_chart.png",
+//   },
+//   {
+//     id: 3,
+//     label: "Water Fall Chart",
+//     icon: "water_fall_chart.png",
+//   },
+//   {
+//     id: 4,
+//     label: "Horizontal WaterFall Chart",
+//     icon: "horizontal_waterfall_chart.png",
+//   },
+//   {
+//     id: 5,
+//     label: "Stacked Chart",
+//     icon: "stacked_chart.png",
+//   },
+//   {
+//     id: 6,
+//     label: "Area Chart",
+//     icon: "area_chart.png",
+//   },
+//   {
+//     id: 7,
+//     label: "Treanding Chart",
+//     icon: "treanding_chart.png",
+//   },
+//   {
+//     id: 8,
+//     label: "Line Bar Chart",
+//     icon: "line_bar_chart.png",
+//   },
 
-  {
-    id: 9,
-    label: "Dash Line Chart",
-    icon: "dash_line_chart_1.png",
-  },
-  {
-    id: 10,
-    label: "Pie Chart",
-    icon: "pie_chart.png",
-  },
-  {
-    id: 11,
-    label: "Tree Chart",
-    icon: "tree_chart.png",
-  },
-  {
-    id: 12,
-    label: "Donut Chart",
-    icon: "donut_chart.png",
-  },
-];
+//   {
+//     id: 9,
+//     label: "Dash Line Chart",
+//     icon: "dash_line_chart_1.png",
+//   },
+//   {
+//     id: 10,
+//     label: "Pie Chart",
+//     icon: "pie_chart.png",
+//   },
+//   {
+//     id: 11,
+//     label: "Tree Chart",
+//     icon: "tree_chart.png",
+//   },
+//   {
+//     id: 12,
+//     label: "Donut Chart",
+//     icon: "donut_chart.png",
+//   },
+// ];
 
-const CHART_DATA = [
-  { name: "event planning", startTime: 1, endTime: 4 },
-  { name: "layout logistics", startTime: 3, endTime: 13 },
-  { name: "select vendors", startTime: 5, endTime: 8 },
-  { name: "hire venue", startTime: 9, endTime: 13 },
-  { name: "hire caterer", startTime: 10, endTime: 14 },
-  { name: "hire event decorators", startTime: 12, endTime: 17 },
-  { name: "rehearsal", startTime: 14, endTime: 16 },
-  { name: "event celebration", startTime: 17, endTime: 18 },
-];
+// const CHART_DATA = [
+//   { name: "event planning", startTime: 1, endTime: 4 },
+//   { name: "layout logistics", startTime: 3, endTime: 13 },
+//   { name: "select vendors", startTime: 5, endTime: 8 },
+//   { name: "hire venue", startTime: 9, endTime: 13 },
+//   { name: "hire caterer", startTime: 10, endTime: 14 },
+//   { name: "hire event decorators", startTime: 12, endTime: 17 },
+//   { name: "rehearsal", startTime: 14, endTime: 16 },
+//   { name: "event celebration", startTime: 17, endTime: 18 },
+// ];
 
-const CHART_DATA_TIMESTAMP = [
-  {
-    task: "Task 1",
-    startTime: "2024-05-01",
-    endTime: "2024-05-05",
-  },
-  {
-    task: "Task 2",
-    startTime: "2024-05-03",
-    endTime: "2024-05-08",
-  },
-  {
-    task: "Task 3",
-    startTime: "2024-05-06",
-    endTime: "2024-05-12",
-  },
-];
+// const CHART_DATA_TIMESTAMP = [
+//   {
+//     task: "Task 1",
+//     startTime: "2024-05-01",
+//     endTime: "2024-05-05",
+//   },
+//   {
+//     task: "Task 2",
+//     startTime: "2024-05-03",
+//     endTime: "2024-05-08",
+//   },
+//   {
+//     task: "Task 3",
+//     startTime: "2024-05-06",
+//     endTime: "2024-05-12",
+//   },
+// ];
 
 function App() {
   // const [isopen, setIsopen] = useState(true);
 
-  const chartProps = {
-    height: 300,
-    width: '300px',
-    data: CHART_DATA_TIMESTAMP,
-    xField: "task",
-    yField: ["endTime", "startTime"],
-    showToolTip: true,
-    legengFieldName: "task",
-    // barUniColorCode:'#38b2a6'
-  };
+  // const chartProps = {
+  //   height: 300,
+  //   width: '300px',
+  //   data: CHART_DATA_TIMESTAMP,
+  //   xField: "task",
+  //   yField: ["endTime", "startTime"],
+  //   showToolTip: true,
+  //   legengFieldName: "task",
+  //   // barUniColorCode:'#38b2a6'
+  // };
 
 
   const ganttChartProps = {
@@ -280,12 +279,11 @@ function App() {
     endDateKey: 'End_Date',
     taskNameKey: 'Sub_Activity',
     projectName: 'Sample Project',
-    hide_y_axis: false,
-    hide_x_axis: false,
+    hide_y_axis: true,
+    hide_x_axis: true,
+    hide_label: true,
     width:'70%',
     hide_title:false,
-
-    // hide_label={hide_label}
     // hide_x_axis_border={hide_x_axis_border}
     // hide_y_axis_border={hide_y_axis_border}
     // hide_grid={hide_grid}
@@ -296,7 +294,7 @@ function App() {
     // hide_y_axis_label={hide_y_axis_label}
     // Alignments={props.columnsAligments}
   };
-
+  
   return (
     <>
       <div

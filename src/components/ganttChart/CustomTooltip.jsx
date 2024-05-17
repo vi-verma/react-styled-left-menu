@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import styled from "styled-components";
 
 const TooltipContainer = styled.div`
@@ -9,7 +9,7 @@ const TooltipContainer = styled.div`
   line-height: 0.4rem;
   padding: 2px 6px;
 `;
-const CustomTooltip = ({task}) => {
+const CustomTooltip = memo(({task}) => {
   return (
     <TooltipContainer>
       <p>{task?.name}</p>
@@ -17,6 +17,6 @@ const CustomTooltip = ({task}) => {
       <p>{`End Date: ${new Date(task?.end).toLocaleDateString()}`}</p>
     </TooltipContainer>
   );
-};
+});
 
 export default CustomTooltip;

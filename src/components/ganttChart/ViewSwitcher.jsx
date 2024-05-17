@@ -15,7 +15,7 @@ export const ViewSwitcher = ({
           return (
             <button
             key={i}
-              style={{ background: view === i ? "grey" : "" }}
+              style={{ background: view === i ? "grey" : undefined }}
               onClick={() => onViewModeChange(i)}
             >
               {i}
@@ -23,14 +23,14 @@ export const ViewSwitcher = ({
           );
         })}
 
-      <div className="Switch">
-        <label className="Switch_Toggle">
+      <div >
+        <label >
           <input
             type="checkbox"
             defaultChecked={isChecked}
             onClick={() => onViewListChange(!isChecked)}
           />
-          <span className="Slider" />
+          <span />
         </label>
         Show Task List
       </div>
