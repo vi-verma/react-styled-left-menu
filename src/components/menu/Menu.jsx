@@ -48,7 +48,7 @@ const MenuItem = styled.div`
   padding: 10px;
   cursor: pointer;
   display: flex;
-  align-item: center;
+  align-items: center;
   &:hover {
     // background-color: #337dff;
     background-color: white;
@@ -75,7 +75,7 @@ const FooterWrapper = styled.div`
   padding: 12px;
   display: flex;
   justify-content: space-between;
-  align-item: center;
+  align-items: center;
 `;
 const Logo = styled.img`
   // width: 20px;

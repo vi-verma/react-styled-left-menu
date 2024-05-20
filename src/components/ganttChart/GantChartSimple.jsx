@@ -73,9 +73,9 @@ const GantChartSimple = ({
   const columnWidthFn = useMemo(() => {
     let columnWidth = 30;
     if (view === ViewMode.Year) {
-      columnWidth = 100;
+      columnWidth = 200;
     } else if (view === ViewMode.Month) {
-      columnWidth = 80;
+      columnWidth = 100;
     } else if (view === ViewMode.Week) {
       columnWidth = 60;
     } else {

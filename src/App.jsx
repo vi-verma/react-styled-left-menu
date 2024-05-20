@@ -11,6 +11,7 @@ import GanttChartComponent from "./components/ganttChart/GanttChartComponent";
 
 import GantChartSimple from "./components/ganttChart/GantChartSimple";
 import { TASK_DATA } from "./components/ganttChart/helper";
+import PopupConfirmation from "./components/popup/PopupConfirmation";
 
 const menuItems = [
   {
@@ -295,6 +296,12 @@ function App() {
     // hide_y_axis_label={hide_y_axis_label}
     // Alignments={props.columnsAligments}
   };
+
+  const [showPopup, setShowPopup] = useState(false);
+
+  const togglePopup = () => {
+    setShowPopup(!showPopup);
+  };
   
   return (
     <>
@@ -307,6 +314,12 @@ function App() {
         <GantChartSimple {...ganttChartProps} />
         {/* <GanttChartAntPlot {...chartProps}/> */}
         {/* <GanttChartComponent data={TASK_DATA}/> */}
+        <button onClick={togglePopup}>Show Popup</button>
+
+        <PopupConfirmation show={showPopup} handleClose={togglePopup}>
+        <h2>Popup Content</h2>
+        <p>This is an example of a simple popup in React using styled-components.</p>
+      </PopupConfirmation>
       </div>
     </>
   );
