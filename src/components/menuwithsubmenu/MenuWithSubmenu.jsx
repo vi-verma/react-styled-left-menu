@@ -9,8 +9,7 @@ const dropdownOptions = [
 ];
 
 const MenuContainer = styled.div`
-  border-radius: ${({ isRootMenuList }) =>
-    isRootMenuList ? "0 8px 16px 0" : ""};
+  border-radius: ${({ isRootMenuList }) => isRootMenuList ? "0 8px 16px 0" : ""};
   box-shadow: 10px 10px 12px -10px rgba(0, 0, 0, 0.75);
   width: 240px;
   height: 100vh;
@@ -26,9 +25,8 @@ const MenuContainer = styled.div`
 `;
 
 const MenuHeader = styled.div`
-  // border-radius: ${({ isRootMenuList }) =>
-    isRootMenuList ? "0 8px 16px 0" : "0"}
-  border-top-right-radius: ${({ isRootMenuList }) =>
+  // border-radius: ${({ isRootMenuList }) => isRootMenuList ? "0 8px 16px 0" : "0"} ;
+    border-top-right-radius: ${({ isRootMenuList }) =>
     isRootMenuList ? "8px 8px" : ""};
   padding: 14px;
   cursor: pointer;
@@ -41,7 +39,7 @@ const SubMenuHeader = styled.div`
   padding: 10px;
   cursor: pointer;
   display: flex;
-  align-item: center;
+  align-items: center;
   // &:hover {
   //   // background-color: #337dff;
   //   background-color: white;
@@ -75,7 +73,7 @@ const MenuItem = styled.div`
   padding: 10px;
   cursor: pointer;
   display: flex;
-  align-item: center;
+  align-items: center;
   text-transform: ${({ isRootMenuList }) => isRootMenuList && "uppercase"};
   animation: ${slideInAnimation} 0.3s ease-in-out forwards;
   &:hover {
@@ -105,7 +103,7 @@ const FooterWrapper = styled.div`
   padding: 12px;
   display: flex;
   justify-content: space-between;
-  align-item: center;
+  align-items: center;
 `;
 const Logo = styled.img`
   // width: 20px;

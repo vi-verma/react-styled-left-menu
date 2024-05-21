@@ -3,7 +3,7 @@
 // import './App.css'
 import { useEffect, useState } from "react";
 import 'gantt-task-react/dist/index.css';
-// import TestMenu from "./components/TestMenu";
+import TestMenu from "./components/TestMenu";
 // import ChartPickerDrawer from "./components/chartTypeSelection/ChartSelectionDrawer";
 // import DisplaySetting from "./components/AdvDisplaySetting/DisplaySetting";
 import GanttChartComponent from "./components/ganttChart/GanttChartComponent";
@@ -297,18 +297,28 @@ function App() {
     // hide_y_axis_label={hide_y_axis_label}
     // Alignments={props.columnsAligments}
   };
+
+  const [showPopup, setshowPopup] = useState(false);
+
+  const togglePopup = () => {
+    setshowPopup(prev=> !prev)
+  };
   
   return (
     <>
       <div
       // style={{width: '200px', height: '200px', overflow: 'auto'}}
       >
-        {/* <TestMenu items={menuItems} /> */}
+
         {/* <ChartPickerDrawer  data={CHART_TYPES} isopen={isopen} /> */}
+
         {/* <DisplaySetting /> */}
-        {/* <GanttChartAntPlot {...chartProps}/> */}
-        {/* <GanttChartComponent data={TASK_DATA}/> */}
-        {/*  final */}
+
+
+        {/* LEFT Side menu */}
+        {/* <TestMenu items={menuItems} /> */}
+        
+        {/*  final GANTT CHART */}
         {/* <GantChartSimple {...ganttChartProps} />  */}
 
         {/* confirmation modal */}
@@ -317,8 +327,7 @@ function App() {
 
         {/* voice search */}
         <VoiceSearch />
-        
-      </div>
+        </div>
     </>
   );
 }

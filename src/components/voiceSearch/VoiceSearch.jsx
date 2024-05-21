@@ -9,7 +9,8 @@ const MainContainer = styled.div`
   text-align: center;
 /* to hide content overlowing */
     overflow: hidden;
-    position: relative;
+    position: absolute;
+    background: white;
 `;
 const TopContent = styled.div`
   height: 220px;
