@@ -13,6 +13,7 @@ import GantChartSimple from "./components/ganttChart/GantChartSimple";
 import { TASK_DATA } from "./components/ganttChart/helper";
 import PopupConfirmation from "./components/popup/PopupConfirmation";
 import VoiceSearch from "./components/voiceSearch/VoiceSearch";
+import CustomTable from "./components/table/CustomTable";
 
 const menuItems = [
   {
@@ -326,7 +327,9 @@ function App() {
         <PopupConfirmation show={showPopup} handleClose={togglePopup}/> */}
 
         {/* voice search */}
-        <VoiceSearch />
+        {/* <VoiceSearch /> */}
+
+        <CustomTable />
 
         </div>
     </>
