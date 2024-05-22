@@ -181,7 +181,7 @@ const CustomTable = () => {
       dataIndex: "action",
       key: "action",
       // manual width can be passes as props
-      // width: '140px',
+      width: "100px",
       render: (__, data) => (
         <ContentWrapper>
           {<DataAction data={data} handleButtonClick={handleButtonClick} />}

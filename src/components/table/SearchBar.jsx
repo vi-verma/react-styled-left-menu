@@ -18,6 +18,12 @@ const SearchInput = styled.input`
   flex: 1;
   padding: 10px;
   font-size: 16px;
+  &::placeholder {
+    color: #888;
+    opacity: 1;
+    font-size: 1.2rem;
+    /* font-weight: 600; */
+  }
 `;
 
 const Icon = styled.img`
