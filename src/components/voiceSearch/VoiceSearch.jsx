@@ -7,21 +7,18 @@ const MainContainer = styled.div`
   box-shadow: -1px 0px 14px 0px rgba(0, 0, 0, 0.75);
   border-radius: 30px;
   text-align: center;
-/* to hide content overlowing */
-    overflow: hidden;
-    position: absolute;
-    background: white;
+  overflow: hidden;
+  position: absolute;
+  background: white;
 `;
 const TopContent = styled.div`
   height: 220px;
   width: 300px;
-  /* background: #337dff; */
-  border-radius: 30px 30px 100% 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
-const Content = styled.div`
+const TopBlueCover = styled.div`
   height: 400px;
   width: 400px;
   background: #337dff;
@@ -29,8 +26,8 @@ const Content = styled.div`
   position: absolute;
   bottom: 100px;
 
-    bottom: 180px;
-    left: -50px;
+  bottom: 180px;
+  left: -50px;
 `;
 const BottomContent = styled.div`
   width: 100%;
@@ -55,14 +52,23 @@ const pulse = keyframes`
 `;
 const Icon = styled.img`
   width: 90px;
+  position: absolute;
+`;
+const IconWrapper = styled.span`
+  width: 92px;
+  height: 92px;
+  background: #689af0;
+  border-radius: 90px;
   animation: ${pulse} 1.5s infinite;
 `;
 
 const VoiceSearch = () => {
+
   return (
     <MainContainer>
-        <Content />
+      <TopBlueCover />
       <TopContent>
+        <IconWrapper></IconWrapper>
         <Icon src={"/src/assets/icons/mic.png"} alt="MIC Icon" />
       </TopContent>
       <BottomContent>
