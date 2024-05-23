@@ -14,6 +14,7 @@ import { TASK_DATA } from "./components/ganttChart/helper";
 import PopupConfirmation from "./components/popup/PopupConfirmation";
 import VoiceSearch from "./components/voiceSearch/VoiceSearch";
 import CustomTable from "./components/table/CustomTable";
+import FusionGanttChart from "./components/ganttChart/FusionGanttChart";
 
 const menuItems = [
   {
@@ -329,7 +330,9 @@ function App() {
         {/* voice search */}
         {/* <VoiceSearch /> */}
 
-        <CustomTable />
+        {/* <CustomTable /> */}
+
+        <FusionGanttChart />
 
         </div>
     </>
