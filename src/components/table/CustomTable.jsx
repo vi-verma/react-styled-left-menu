@@ -56,14 +56,16 @@ const ContentWrapper = styled.div`
   background: #dee5fa;
 `;
 const SortIcon = styled.img`
-  height: 1.5rem;
+  height: 1rem;
+  width: 0.6rem;
   margin-left: 4px;
   vertical-align: middle;
-  /* display: hide;
-  &:hover{
-    display: block;
-  } */
-  /* text-align: center; */
+`;
+const SortedIcon = styled.img`
+  height: 0.6rem;
+  width: 0.6rem;
+  margin-left: 4px;
+  vertical-align: middle;
 `;
 
 const TABLE_DATA = [
@@ -202,7 +204,7 @@ const CustomTable = () => {
                   {el?.title}
                   {table?.sort === "asc" &&
                   table?.sortColumn === el?.dataIndex ? (
-                    <SortIcon
+                    <SortedIcon
                       onClick={() =>
                         handleTableChange({
                           sort: "desc",
@@ -214,7 +216,7 @@ const CustomTable = () => {
                     />
                   ) : table?.sort === "desc" &&
                     table?.sortColumn === el?.dataIndex ? (
-                    <SortIcon
+                    <SortedIcon
                       onClick={() =>
                         handleTableChange({
                           sort: "",
