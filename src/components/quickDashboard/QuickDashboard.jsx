@@ -5,7 +5,7 @@ import ManualDashboard from "./ManualDashboard";
 
 const Card = styled.div`
   background: white;
-  border-radius: 10px;
+  border-radius: 18px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
   width: 600px;
@@ -16,7 +16,7 @@ const Card = styled.div`
 const Tabs = styled.div`
   position: relative;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   margin-bottom: 20px;
 
   &::after {
@@ -33,11 +33,11 @@ const Tabs = styled.div`
 const TabButton = styled.button`
   background: none;
   border: none;
-  padding: 10px;
+  padding: 10px 0;
+  margin: 0 10px;
   cursor: pointer;
   font-weight: bold;
-  color: #333;
-  border-bottom: ${(props) => (props.active ? "2px solid #007BFF" : "none")};
+  border-bottom: ${(props) => (props.active ? "3px solid #007BFF" : "none")};
   padding-bottom: ${(props) => (props.active ? "0px" : "2px")};
   z-index: 1;
 `;

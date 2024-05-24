@@ -18,22 +18,17 @@ const pulse = keyframes`
 const MainWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+  justify-content: center;
   align-items:center;
-`;
-
-const Message = styled.p`
-  font-size: 1em;
-  color: #666;
-  margin: 20px 0;
+  height: 240px;
 `;
 
 const VoiceButtonStyled = styled.button`
   background-color: #4285f4;
   border: none;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,8 +55,8 @@ const MicIcon = styled.img`
 
 const PulseCircle = styled.div`
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   background-color: rgba(66, 133, 244, 0.3);
   border-radius: 50%;
   transform: translate(-50%, -50%);
@@ -72,26 +67,36 @@ const PulseCircle = styled.div`
   }
 `;
 
+const Text = styled.p`
+  font-size: 0.8rem;
+  margin: 20px 0;
+`;
+
 const CodeGenerateBox = styled.div`
   height: 40px;
-  width: 70%;
+  width: 80%;
   border-radius: 50px;
+  font-size: 0.8rem;
   background-color: #f3f3f3;
   display: flex;
   justify-content: space-between;
 `;
 const CodeText = styled.div`
   padding-left: 14px;
-  padding-top: 6px;
+  padding-top: 9px;
 `;
 const GenerateBtn = styled.button`
-  padding: 4px 6px;
+  padding: 0.25rem 1rem;
   border: none;
   border-radius: 50px;
   cursor: pointer;
   margin-left: 10px;
   color: white;
   background-color: #337dff;
+  font-size: 0.8rem;
+  &:hover {
+    background-color:#5996ff;
+  }
 `;
 
 const VoiceBasedDashboard = () => {
@@ -99,26 +104,26 @@ const VoiceBasedDashboard = () => {
 
   const handleVoiceButtonClick = () => {
     setListening((prev) => !prev);
-    // Here you can add your voice recognition logic
+    
   };
 
   return (
     <MainWrapper>
-      {/* <Title>Google Voice Assistant</Title> */}
+
       <VoiceButtonStyled onClick={handleVoiceButtonClick}>
-        <MicIcon />
         {listening && <PulseCircle />}
+        <MicIcon />
       </VoiceButtonStyled>
-      <Message>Please Provide Voice Command</Message>
+
+      <Text>Please Provide Voice Command</Text>
 
       <CodeGenerateBox>
         <CodeText>aeyfgwg lrewhfli</CodeText>
         <GenerateBtn>Generate Code</GenerateBtn>
       </CodeGenerateBox>
+      
     </MainWrapper>
   );
 };
-
-// export default VoiceAssistantPopup;
 
 export default VoiceBasedDashboard;

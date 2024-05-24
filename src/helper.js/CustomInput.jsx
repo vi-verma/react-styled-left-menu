@@ -2,16 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-/* display: inline- */
   margin-bottom: 20px;
   width: ${(props) => props.width || "100%"};
 `;
 
 const Label = styled.label`
-  /* display: block; */
   margin-bottom: 8px;
   font-size: 0.7rem;
-  /* color: #333; */
 `;
 
 const Input = styled.input`
@@ -19,9 +16,11 @@ const Input = styled.input`
   background: #f3f3f3;
   width: 100%;
   padding: 8px;
-  /* font-size: 14px; */
-  /* border: 1px solid #ccc; */
   border-radius: 4px;
+  &::placeholder {
+    font-size: ${(props) => props.placeholderFontSize || props.fontSize || '0.7rem'};
+    color: #999;
+  }
   &:focus {
     border-color: #4285f4;
     outline: none;
@@ -33,9 +32,12 @@ const Select = styled.select`
   background: #f3f3f3;
   width: 100%;
   padding: 8px;
-  font-size: 14px;
-  /* border: 1px solid #ccc; */
+  font-size: 0.7rem;
   border-radius: 4px;
+  &:option {
+    font-size: 10px;  // Font size for options
+    padding: 10px;
+  }
   &:focus {
     border-color: #4285f4;
     outline: none;
@@ -48,7 +50,6 @@ const Search = styled.input.attrs({ type: "search" })`
   width: 100%;
   padding: 8px;
   font-size: 14px;
-  /* border: 1px solid #ccc; */
   border-radius: 4px;
   &:focus {
     border-color: #4285f4;
@@ -66,7 +67,7 @@ const CustomInput = ({ type, label, width, ...props }) => {
           {props.options &&
             props.options.map((option, index) => (
               <option key={index} value={option.value}>
-                {option.label}
+               {option.label}
               </option>
             ))}
         </Select>

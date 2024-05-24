@@ -2,16 +2,21 @@ import React from "react";
 import styled from "styled-components";
 import CustomInput from "../../helper.js/CustomInput";
 
+const MainWrapper = styled.div`
+  height: 240px;
+  display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+`;
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
 const IconBtn = styled.img`
-  width: 20px;
-  height: 20px;
-  padding-top: 30px;
-  /* vertical-align: bottom; */
-  /* margin-right: 10px; */
+  width: 1rem;
+  height: 1rem;
+  padding-top: 31px;
 `;
 
 const CardFooter = styled.div`
@@ -21,17 +26,22 @@ const CardFooter = styled.div`
 `;
 
 const Button = styled.button`
-  padding: 10px 20px;
+  padding: 6px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   margin-left: 10px;
   color: ${(props) => props.primary && "white"};
   background-color: ${(props) => (props.primary ? "#337dff" : "#f3f3f3")};
+  &:hover {
+    background-color: ${(props) => (props.primary ? "#6a9ff9" : "#e0e0e0")};
+  }
 `;
+
 const ManualDashboard = () => {
+
   return (
-    <div>
+    <MainWrapper>
       <div>
         <CustomInput
           type="text"
@@ -39,7 +49,6 @@ const ManualDashboard = () => {
           width="46%"
           placeholder="Enter dashboard name"
         />
-      </div>
       <Wrapper>
         <CustomInput
           type="text"
@@ -66,12 +75,13 @@ const ManualDashboard = () => {
         />
         <IconBtn src={"./src/assets/icons/dots.png"} alt="Prefix Icon" />
       </Wrapper>
+      </div>
 
       <CardFooter>
         <Button primary>Save</Button>
         <Button>Cancel</Button>
       </CardFooter>
-    </div>
+    </MainWrapper>
   );
 };
 
