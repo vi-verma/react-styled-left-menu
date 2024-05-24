@@ -330,9 +330,9 @@ function App() {
         {/* voice search */}
         {/* <VoiceSearch /> */}
 
-        {/* <CustomTable /> */}
+        <CustomTable />
 
-        <FusionGanttChart />
+        {/* <FusionGanttChart /> */}
 
         </div>
     </>

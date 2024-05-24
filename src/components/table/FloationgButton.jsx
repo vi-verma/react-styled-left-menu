@@ -6,8 +6,8 @@ const Button = styled.button`
   position: fixed;
   bottom: 80px;
   right: 60px;
-  width: 60px;
-  height: 60px;
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
   margin: 0;
   padding: 0;
@@ -19,13 +19,12 @@ const Button = styled.button`
   z-index: 3;
 
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 `;
 const Icon = styled.img`
   margin: 0;
   width: 100%;
-  /* width: 1rem; */
 `;
 const FloatingButton = ({ onClick }) => {
   return (

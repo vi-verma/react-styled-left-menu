@@ -57,13 +57,15 @@ const ContentWrapper = styled.div`
 `;
 const SortIcon = styled.img`
   height: 1rem;
-  width: 0.6rem;
+  width:  1rem;
+  padding: 0.2rem;
   margin-left: 4px;
   vertical-align: middle;
 `;
 const SortedIcon = styled.img`
   height: 0.6rem;
   width: 0.6rem;
+  padding: 0.4rem;
   margin-left: 4px;
   vertical-align: middle;
 `;
