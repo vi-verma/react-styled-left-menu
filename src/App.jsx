@@ -15,6 +15,7 @@ import PopupConfirmation from "./components/popup/PopupConfirmation";
 import VoiceSearch from "./components/voiceSearch/VoiceSearch";
 import CustomTable from "./components/table/CustomTable";
 import FusionGanttChart from "./components/ganttChart/FusionGanttChart";
+import QuickDashboard from "./components/quickDashboard/QuickDashboard";
 
 const menuItems = [
   {
@@ -320,6 +321,7 @@ function App() {
         {/* LEFT Side menu */}
         {/* <TestMenu items={menuItems} /> */}
         
+        {/* <FusionGanttChart /> */}
         {/*  final GANTT CHART */}
         {/* <GantChartSimple {...ganttChartProps} />  */}
 
@@ -330,10 +332,11 @@ function App() {
         {/* voice search */}
         {/* <VoiceSearch /> */}
 
-        <CustomTable />
+        {/* <CustomTable /> */}
 
-        {/* <FusionGanttChart /> */}
+          <QuickDashboard />
 
+          
         </div>
     </>
   );
